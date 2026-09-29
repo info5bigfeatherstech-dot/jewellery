@@ -1,0 +1,333 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   AURELIA HAUTE JOAILLERIE — DESIGN SYSTEM & TOKENS
+   Tailwind CSS v4 Theme Configuration
+   ========================================================================== */
+
+@theme {
+  /* Typography Families */
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-script: "Italiana", "Bodoni Moda", "Cormorant Garamond", Georgia, serif;
+
+
+  /* Editorial Warm Ivory Palette */
+  --color-ivory-50: #FDFAF5;
+  --color-ivory-100: #FAF6F0;
+  --color-ivory-200: #F4EFEB;
+  --color-ivory-300: #EAE2D6;
+  --color-ivory-400: #DDD3C4;
+  --color-cream: #F5EFEB;
+  
+  /* Rich Espresso / Charcoal Typography */
+  --color-espresso-950: #13100E;
+  --color-espresso-900: #1E1A17;
+  --color-espresso-800: #2C2622;
+  --color-espresso-700: #443B35;
+  --color-espresso-600: #5E534B;
+  --color-espresso-500: #7A6F66;
+  --color-espresso-400: #9C9187;
+  --color-espresso-300: #C2B8AD;
+  --color-espresso-200: #DFD7CE;
+  --color-espresso-100: #EFEBE5;
+
+  /* Muted Champagne Gold Accents */
+  --color-champagne-50: #FBF8F2;
+  --color-champagne-100: #F7F2E7;
+  --color-champagne-200: #EFE6D4;
+  --color-champagne-300: #DFC99F;
+  --color-champagne-400: #CCA96C;
+  --color-champagne-500: #B8975A;
+  --color-champagne-600: #A38347;
+  --color-champagne-700: #846730;
+  --color-champagne-800: #6B5226;
+  --color-champagne-900: #4E3C1B;
+
+  /* Deep Editorial Accents */
+  --color-emerald-deep: #1A2E26;
+  --color-oxblood: #3D121A;
+
+  /* Letter Spacing */
+  --letter-spacing-super-lux: 0.28em;
+  --letter-spacing-widest-lux: 0.2em;
+
+  /* Custom Transitions */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES & BASE STYLING
+   ========================================================================== */
+
+:root {
+  --bg-primary: #FAF6F0;
+  --bg-secondary: #F4EFEB;
+  --bg-tertiary: #EAE2D6;
+  --text-primary: #1E1A17;
+  --text-muted: #7A6F66;
+  --gold-accent: #B8975A;
+  --gold-light: #DFC99F;
+  --gold-dark: #846730;
+  --hairline-border: rgba(30, 26, 23, 0.1);
+  --hairline-gold-border: rgba(184, 151, 90, 0.32);
+}
+
+html {
+  background-color: #FAF6F0;
+  color: #1E1A17;
+  scroll-behavior: auto !important;
+  font-family: "Jost", "Manrope", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+body {
+  background-color: #FAF6F0;
+  color: #1E1A17;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Selection Color (Champagne Gold with clean contrast) */
+::selection {
+  background-color: #B8975A;
+  color: #FFFFFF;
+}
+
+/* Custom Ultra-Thin Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #DFC99F;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8975A;
+}
+
+/* ==========================================================================
+   EXPLICIT COLOR UTILITY CLASSES (FAILSAFE FALLBACKS)
+   ========================================================================== */
+
+.bg-ivory-50  { background-color: #FDFAF5 !important; }
+.bg-ivory-100 { background-color: #FAF6F0 !important; }
+.bg-ivory-200 { background-color: #F4EFEB !important; }
+.bg-ivory-300 { background-color: #EAE2D6 !important; }
+.bg-cream     { background-color: #F5EFEB !important; }
+
+.text-ivory-50  { color: #FDFAF5 !important; }
+.text-ivory-100 { color: #FAF6F0 !important; }
+.text-ivory-200 { color: #F4EFEB !important; }
+.text-ivory-300 { color: #EAE2D6 !important; }
+
+
+.text-espresso-950 { color: #13100E !important; }
+.text-espresso-900 { color: #1E1A17 !important; }
+.text-espresso-800 { color: #2C2622 !important; }
+.text-espresso-700 { color: #443B35 !important; }
+.text-espresso-600 { color: #5E534B !important; }
+.text-espresso-500 { color: #7A6F66 !important; }
+.text-espresso-400 { color: #9C9187 !important; }
+.text-espresso-300 { color: #C2B8AD !important; }
+
+.text-champagne-300 { color: #DFC99F !important; }
+.text-champagne-400 { color: #CCA96C !important; }
+.text-champagne-500 { color: #B8975A !important; }
+.text-champagne-600 { color: #A38347 !important; }
+.text-champagne-700 { color: #846730 !important; }
+
+.bg-champagne-400 { background-color: #CCA96C !important; }
+.bg-champagne-500 { background-color: #B8975A !important; }
+.bg-champagne-600 { background-color: #A38347 !important; }
+
+.border-champagne-300 { border-color: #DFC99F !important; }
+.border-champagne-400 { border-color: #CCA96C !important; }
+.border-champagne-500 { border-color: #B8975A !important; }
+.border-champagne-600 { border-color: #A38347 !important; }
+
+/* ==========================================================================
+   EDITORIAL HAIRLINE BORDERS & DIVIDERS
+   ========================================================================== */
+
+.border-hairline {
+  border-color: rgba(30, 26, 23, 0.1) !important;
+}
+.border-hairline-light {
+  border-color: rgba(30, 26, 23, 0.07) !important;
+}
+.border-hairline-medium {
+  border-color: rgba(30, 26, 23, 0.14) !important;
+}
+.border-hairline-gold {
+  border-color: rgba(184, 151, 90, 0.35) !important;
+}
+.border-hairline-white {
+  border-color: rgba(250, 246, 240, 0.15) !important;
+}
+
+.divide-hairline-light > * + * {
+  border-color: rgba(30, 26, 23, 0.07) !important;
+}
+.divide-hairline-medium > * + * {
+  border-color: rgba(30, 26, 23, 0.14) !important;
+}
+
+/* ==========================================================================
+   QUIET LUXURY SHADOWS & ELEVATION
+   ========================================================================== */
+
+.shadow-subtle {
+  box-shadow: 0 4px 20px -2px rgba(30, 26, 23, 0.05), 0 2px 6px -1px rgba(30, 26, 23, 0.02) !important;
+}
+.shadow-elevated {
+  box-shadow: 0 20px 45px -15px rgba(30, 26, 23, 0.08), 0 0 1px 1px rgba(30, 26, 23, 0.04) !important;
+}
+.shadow-gold {
+  box-shadow: 0 10px 30px -4px rgba(184, 151, 90, 0.22) !important;
+}
+.shadow-gold-sm {
+  box-shadow: 0 4px 14px -2px rgba(184, 151, 90, 0.18) !important;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================================== */
+
+.font-serif {
+  font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif !important;
+}
+.font-sans {
+  font-family: "Jost", "Manrope", system-ui, -apple-system, sans-serif !important;
+}
+.font-script {
+  font-family: "Italiana", "Bodoni Moda", "Cormorant Garamond", Georgia, serif !important;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+.font-display {
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif !important;
+}
+
+.tracking-super-lux {
+  letter-spacing: 0.28em !important;
+}
+.tracking-widest-lux {
+  letter-spacing: 0.2em !important;
+}
+.tracking-wider-lux {
+  letter-spacing: 0.14em !important;
+}
+
+/* Gold Shimmer Text Effect */
+.gold-shimmer {
+  background: linear-gradient(120deg, #9C7D41 0%, #DFC99F 35%, #B8975A 60%, #7E6331 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   MICRO-INTERACTIONS & ANIMATIONS
+   ========================================================================== */
+
+/* Animated Draw Underline */
+.link-underline {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Architectural Arched Shapes */
+.arch-top {
+  border-top-left-radius: 9999px !important;
+  border-top-right-radius: 9999px !important;
+}
+.arch-bottom {
+  border-bottom-left-radius: 9999px !important;
+  border-bottom-right-radius: 9999px !important;
+}
+
+/* Image Zoom Container */
+.img-editorial {
+  overflow: hidden;
+}
+.img-editorial img {
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+.img-editorial:hover img {
+  transform: scale(1.05);
+}
+
+/* Hide Scrollbar Cross-Browser */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Continuous Slow Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Luxury Bezier Curve */
+.ease-luxury {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Focus Visible Accessible Styling */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid #B8975A !important;
+  outline-offset: 3px !important;
+}
